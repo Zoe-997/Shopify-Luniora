@@ -327,7 +327,25 @@
             "label": "t:settings.hover_borders",
             "default": "#1A1A1A",
             "alpha": true
-          }
+          },
+          {
+            "type": "header",
+            "content": "t:content.rating"
+          },
+          {
+            "type": "color",
+            "id": "rating_color_empty",
+            "label": "t:settings.color_empty",
+            "default": "#F4F4F4",
+            "alpha": true
+          },
+          {
+            "type": "color",
+            "id": "rating_color",
+            "label": "t:settings.color",
+            "default": "#FFAA00",
+            "alpha": true
+          },
         ],
         "role": {
           "text": "foreground",

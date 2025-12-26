@@ -81,6 +81,9 @@
         --font-h5--color: var(--color-foreground-heading);
         --font-h6--color: var(--color-foreground-heading);
 
+        --rating-color-empty: rgba({{ scheme.settings.rating_color_empty }});
+        --rating-color: rgba({{ scheme.settings.rating_color }});
+
         /* Shadows */
         {% if settings.drawer_drop_shadow %}
           --shadow-drawer: 0px 4px 20px rgb(var(--color-shadow-rgb) / var(--opacity-15));
