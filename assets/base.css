@@ -381,7 +381,8 @@ p:empty {
 .page-width-wide,
 .page-width-normal,
 .page-width-narrow,
-.page-width-content {
+.page-width-content,
+.page-width-custom {
   --page-margin: 16px;
 }
 
@@ -389,7 +390,8 @@ p:empty {
   .page-width-wide,
   .page-width-normal,
   .page-width-narrow,
-  .page-width-content {
+  .page-width-content,
+  .page-width-custom {
     --page-margin: 40px;
   }
 }
@@ -414,6 +416,11 @@ p:empty {
 
 .page-width-content {
   --page-content-width: var(--normal-content-width);
+  --page-width: calc(var(--page-content-width) + (var(--page-margin) * 2));
+}
+
+.page-width-custom {
+  --page-content-width: var(--custom-page-width);
   --page-width: calc(var(--page-content-width) + (var(--page-margin) * 2));
 }
 

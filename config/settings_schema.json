@@ -1376,9 +1376,25 @@
           {
             "value": "wide",
             "label": "t:options.wide"
+          },
+          {
+            "value": "custom",
+            "label": "t:options.custom"
           }
         ],
         "default": "narrow"
+      },
+      {
+        "type": "number",
+        "id": "custom_page_width",
+        "label": "t:settings.custom_page_width",
+        "default": 1312,
+        "info": "t:info.unit_px",
+        "visible_if": "{{ settings.page_width == 'custom' }}"
+      },
+      {
+        "type": "paragraph",
+        "content": "t:content.natural_number_format"
       }
     ]
   },
