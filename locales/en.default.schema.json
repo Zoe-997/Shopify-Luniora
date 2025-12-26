@@ -586,6 +586,7 @@
     "lift": "Lift",
     // Font weight option lighter than regular
     "light": "Light",
+    "extralight": "Extralight",
     "lightning_bolt": "Lightning bolt",
     "link": "Link",
     "linkedin": "LinkedIn",
@@ -669,6 +670,7 @@
     "secondary": "Secondary",
     "secondary_style": "Secondary style",
     "semibold": "Semibold",
+    "extrabold": "Extrabold",
     "sentence": "Sentence",
     "serving_dish": "Serving dish",
     "shaded": "Shaded",
