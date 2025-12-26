@@ -8,7 +8,21 @@
   {% render 'button', link: '/collections/all' %}
 {%- enddoc -%}
 
-{% assign block_settings = block.settings %}
+{% liquid
+  assign block_settings = block.settings
+  assign icon_position = block_settings.icon_position | default: 'prefix'
+  assign icon_style = block_settings.icons_style
+  assign show_icon = false
+  if icon_style != 'none'
+    assign show_icon = true
+  endif
+
+  if block_settings.link_underline == false
+    assign link_underline = 'none'
+  else
+    assign link_underline = 'underline'
+  endif
+%}
 
 <a
   {% if link == blank %}
@@ -21,25 +35,61 @@
     size-style
     {{ block_settings.style_class }}
     {{ block_settings.style_class }}--{{ block.id }}
+    button-{{ block_settings.type_preset }}
+    {%- if block_settings.default_border == false -%}border-custom{%- endif -%}
   "
-  style="{% render 'size-style', settings: block_settings %}"
+  style="
+    {%- render 'size-style', settings: block_settings -%}
+    {%- if block_settings.type_preset == 'custom' -%}{%- render 'typography-style', settings: block_settings -%}{%- endif -%}
+    {%- if block_settings.default_border == false -%}{%- render 'border-override', settings: block_settings -%}{%- endif -%}
+    --gap: {{ block_settings.gap }}px;
+    --button-padding-block: {{ block_settings.padding-block }}px;
+    --button-padding-inline: {{ block_settings.padding-inline }}px;
+    --link-underline: {{ link_underline }};
+  "
   {%- if block_settings.open_in_new_tab -%}
     target="_blank"
     rel="noopener noreferrer"
   {%- endif -%}
   {{ block.shopify_attributes }}
 >
-  {{ block_settings.label }}
+  <span class="button-inner flex">
+    {% if show_icon and icon_position == 'surfix' %}
+      {% render 'button-icon', icon_style: icon_style, icon_size: 'small', icon_shape: 'none' %}
+    {% endif %}
+    <span>{{ block_settings.label }}</span>
+    {% if show_icon and icon_position == 'prefix' %}
+      {% render 'button-icon', icon_style: icon_style, icon_size: 'small', icon_shape: 'none' %}
+    {% endif %}
+  </span>
 </a>
 
 {% stylesheet %}
   .link {
-    text-decoration: none;
+    text-decoration: var(--link-underline);
     text-decoration-color: currentcolor;
 
     &:hover {
       color: var(--color-primary-hover);
       text-decoration-color: transparent;
     }
+  }
+
+  .button-inner {
+    gap: var(--gap);
+  }
+
+  .button-custom {
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+    font-family: var(--font-family);
+    text-transform: var(--text-transform);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+  }
+
+  .border-custom {
+    border-width: var(--border-width);
+    border-radius: var(--border-radius);
   }
 {% endstylesheet %}

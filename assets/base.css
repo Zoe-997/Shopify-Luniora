@@ -65,6 +65,14 @@ select {
   color: currentcolor;
 }
 
+.flex {
+  display: flex;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
 .collection-card,
 .featured-blog-posts-card {
   width: 100%;

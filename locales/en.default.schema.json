@@ -750,6 +750,9 @@
     "below_media": "Below media"
   },
   "settings": {
+    "default_border": "Border: default",
+    "padding_block": "Padding: block",
+    "padding_inline": "Padding: inline",
     "color_empty": "Color: Empty",
     "custom_page_width": "Page width: Custom",
     "accordion": "Accordion",
