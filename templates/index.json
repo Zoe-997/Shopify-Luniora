@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "hero_iLBwPd": {
       "type": "hero",
@@ -42,6 +43,7 @@
             "overlay_color": "#00000026",
             "overlay_style": "solid",
             "gradient_direction": "to top",
+            "link": "",
             "open_in_new_tab": false,
             "placeholder": "",
             "padding-block-start": 0,
@@ -81,6 +83,7 @@
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
+                "link": "",
                 "open_in_new_tab": false,
                 "placeholder": "",
                 "padding-block-start": 0,
@@ -100,6 +103,7 @@
                     "type_preset": "custom",
                     "font": "var(--font-accent--family)",
                     "font_size": "1.5rem",
+                    "weight": "400",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -125,6 +129,7 @@
                     "type_preset": "h2",
                     "font": "var(--font-primary--family)",
                     "font_size": "",
+                    "weight": "400",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -157,6 +162,7 @@
                 "type_preset": "rte",
                 "font": "var(--font-primary--family)",
                 "font_size": "",
+                "weight": "400",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -186,6 +192,11 @@
       "settings": {
         "media_type_1": "image",
         "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
         "open_in_new_tab": false,
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -341,6 +352,7 @@
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
+                "link": "",
                 "open_in_new_tab": false,
                 "padding-block-start": 24,
                 "padding-block-end": 24,
@@ -453,6 +465,7 @@
           "static": true,
           "settings": {
             "media_type": "video",
+            "link": "",
             "video_loop": true,
             "video_autoplay": true,
             "image_position": "cover",
@@ -473,6 +486,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
+                "link": "",
                 "image_ratio": "adapt",
                 "width": "fill",
                 "custom_width": 100,
@@ -501,6 +515,7 @@
                 "type_preset": "h3",
                 "font": "var(--font-primary--family)",
                 "font_size": "",
+                "weight": "400",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -526,6 +541,7 @@
                 "type_preset": "rte",
                 "font": "var(--font-primary--family)",
                 "font_size": "",
+                "weight": "400",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -548,10 +564,25 @@
                 "link": "shopify://collections/all",
                 "open_in_new_tab": false,
                 "style_class": "button",
+                "icons_style": "none",
+                "link_underline": false,
+                "gap": 5,
                 "width": "fit-content",
                 "custom_width": 100,
                 "width_mobile": "fit-content",
-                "custom_width_mobile": 100
+                "custom_width_mobile": 100,
+                "type_preset": "default",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "weight": "400",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "default_border": true,
+                "border_width": 0,
+                "border_radius": 10,
+                "padding-block": 10,
+                "padding-inline": 20
               },
               "blocks": {}
             }
@@ -610,6 +641,7 @@
             "overlay_color": "#00000026",
             "overlay_style": "solid",
             "gradient_direction": "to top",
+            "link": "",
             "open_in_new_tab": false,
             "placeholder": "",
             "padding-block-start": 0,
@@ -629,6 +661,7 @@
                 "type_preset": "h2",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
+                "weight": "400",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -718,6 +751,7 @@
       ],
       "name": "Collection list",
       "settings": {
+        "collection_list": [],
         "layout_type": "bento",
         "carousel_on_mobile": true,
         "columns": 4,

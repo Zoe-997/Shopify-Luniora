@@ -275,7 +275,14 @@
 
 <header-component
   id="header-component"
-  class="{{ class }}"
+  class="{{ class }}{% if section.settings.overlay_header %} overlay-header{% endif %}"
+  {%- if section.settings.overlay_header -%}
+    style="
+      --overlay-top: {{ section.settings.overlay_top }}px;
+      --overlay-radius: {{ section.settings.overlay_radius }}px;
+      --header-margin: {{ section.settings.overlay_padding_inline }}px;
+    "
+  {%- endif -%}
   data-theme-color="rgb({{ section.settings.color_scheme_top.settings.background.rgb }})"
   {% if transparent %}
     transparent="{{ transparent }}"
@@ -457,6 +464,20 @@
     --color-background-rgb: inherit;
     --color-border: inherit;
     --color-border-rgb: inherit;
+  }
+
+  .header.overlay-header:not([data-scroll-direction='active']) {
+    position: sticky;
+    top: var(--overlay-top);
+    right: 0;
+    left: 0;
+    max-width: min(var(--page-width) - var(--header-margin) * 2, calc(100% - var(--header-margin) * 2));
+    margin: 0 auto;
+    z-index: var(--layer-sticky);
+  }
+  
+  .header.overlay-header:not([data-scroll-direction='active']) .header__row {
+    border-radius: var(--overlay-radius);
   }
 
   .header-section {
@@ -760,6 +781,49 @@
   "tag": "header",
   "class": "header-section",
   "settings": [
+    {
+      "type": "header",
+      "content": "t:content.layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "overlay_header",
+      "label": "t:settings.overlay_header",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "overlay_top",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ section.settings.overlay_header }}"
+    },
+    {
+      "type": "range",
+      "id": "overlay_radius",
+      "label": "t:settings.border_radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ section.settings.overlay_header }}"
+    },
+    {
+      "type": "range",
+      "id": "overlay_padding_inline",
+      "label": "t:settings.padding_inline",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 64,
+      "visible_if": "{{ section.settings.overlay_header }}"
+    },
     {
       "type": "header",
       "content": "t:content.logo"

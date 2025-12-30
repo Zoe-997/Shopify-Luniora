@@ -752,6 +752,7 @@
     "below_media": "Below media"
   },
   "settings": {
+    "overlay_header": "Overlay Header",
     "default_border": "Border: default",
     "padding_block": "Padding: block",
     "padding_inline": "Padding: inline",

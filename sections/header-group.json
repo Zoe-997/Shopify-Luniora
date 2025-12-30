@@ -11,36 +11,6 @@
   "type": "header",
   "name": "Header",
   "sections": {
-    "header_announcements_WbCTVz": {
-      "type": "header-announcements",
-      "blocks": {
-        "announcement_mxxhta": {
-          "type": "_announcement",
-          "settings": {
-            "text": "Uplevel your office with new decor",
-            "link": "shopify://collections/all",
-            "font": "var(--font-primary--family)",
-            "font_size": "var(--font-size--body-md)",
-            "weight": "",
-            "letter_spacing": "normal",
-            "case": "none"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "announcement_mxxhta"
-      ],
-      "name": "t:names.announcement_bar",
-      "settings": {
-        "speed": 5,
-        "section_width": "full-width",
-        "color_scheme": "",
-        "divider_width": 0,
-        "padding-block-start": 15,
-        "padding-block-end": 15
-      }
-    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -61,11 +31,12 @@
           "static": true,
           "settings": {
             "menu": "main-menu",
-            "color_scheme": "",
-            "type_font_primary_size": "var(--font-size--body-md)",
+            "color_scheme": "scheme-1",
+            "type_font_primary_size": "1rem",
             "menu_font_style": "inverse",
-            "type_font_primary_link": "primary",
-            "type_case_primary_link": "none",
+            "type_font_primary_link": "accent",
+            "menu_font_weight": "700",
+            "type_case_primary_link": "uppercase",
             "menu_style": "featured_products",
             "featured_products_aspect_ratio": "4 / 5",
             "featured_collections_aspect_ratio": "16 / 9",
@@ -86,9 +57,9 @@
         "show_search": true,
         "search_position": "right",
         "search_row": "top",
-        "show_country": true,
-        "country_selector_style": true,
-        "show_language": true,
+        "show_country": false,
+        "country_selector_style": false,
+        "show_language": false,
         "localization_font": "body",
         "localization_font_size": "0.875rem",
         "localization_position": "right",
@@ -99,10 +70,10 @@
         "divider_width": 0,
         "divider_size": "page-width",
         "border_width": 0,
-        "color_scheme_top": "scheme-1",
+        "color_scheme_top": "scheme-2",
         "color_scheme_bottom": "",
-        "color_scheme_transparent": "scheme-6",
-        "enable_transparent_header_home": true,
+        "color_scheme_transparent": "scheme-1",
+        "enable_transparent_header_home": false,
         "home_color_scheme": "inverse",
         "enable_transparent_header_product": false,
         "product_color_scheme": "default",
@@ -112,7 +83,6 @@
     }
   },
   "order": [
-    "header_announcements_WbCTVz",
     "header_section"
   ]
 }

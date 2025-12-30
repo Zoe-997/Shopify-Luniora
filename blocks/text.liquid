@@ -48,9 +48,21 @@
         {
           "value": "none",
           "label": "t:options.none"
+        },
+        {
+          "value": "custom",
+          "label": "t:options.custom"
         }
       ],
       "default": "normal"
+    },
+    {
+      "type": "number",
+      "id": "max_width_custom",
+      "label": "t:settings.max_width_custom",
+      "default": 524,
+      "info": "t:info.format_number_px",
+      "visible_if": "{{ block.settings.max_width == 'custom' }}"
     },
     {
       "type": "text_alignment",
@@ -185,6 +197,10 @@
         {
           "value": "3.5rem",
           "label": "56px"
+        },
+        {
+          "value": "4rem",
+          "label": "64px"
         },
         {
           "value": "4.5rem",
