@@ -11,6 +11,8 @@
   assign block_settings = block.settings
   assign plain_text = block_settings.text | strip_newlines | strip_html | strip
   assign text_width = width | default: block_settings.width
+  assign max_width = block_settings.max_width
+  assign max_width_custom = block_settings.max_width_custom | append: 'px'
 
   if block_settings.font_size contains 'heading-lg' or block_settings.font_size contains 'heading-xl'
     assign type = 'display'
@@ -56,6 +58,9 @@
   style="
     {% render 'spacing-padding', settings: block_settings %}
     {% render 'typography-style', settings: block_settings %}
+    {% if max_width == 'custom' %}
+      --max-width--body-custom: {{ max_width_custom }};
+    {% endif %}
     --width: {{ text_width }};
     --max-width: var(--max-width--{{ type }}-{{ block_settings.max_width }});
     {% if text_width == "100%" %}
@@ -70,7 +75,6 @@
 
   {{ block.shopify_attributes }}
 {% endcapture %}
-
 {% liquid
   # {{ attributes }} must be on the immediate HTML parent of the text to preserve
   # the click-to-edit connection in the theme editor. Any break between the text,
@@ -80,15 +84,23 @@
   if is_rte
     assign element = 'rte-formatter'
   endif
+
+  assign highlight_color = block.settings.highlight_color
+  assign block_text = block.settings.text
+  assign highlight_position = block.settings.highlight_position
 %}
 
 {% if fallback_text != blank and plain_text == blank %}
-  <div {{ attributes | strip_newlines | strip }}>
+  <div {{ attributes }}>
     {{ fallback_text }}
   </div>
 {% elsif plain_text != blank %}
-  <{{ element }} {{ attributes | strip_newlines | strip }}>
-    {{ block.settings.text }}
+  <{{ element }} {{ attributes }}>
+    {% if highlight_position != blank %}
+      {% render 'highlight-text', text: block_text, highlight_position: highlight_position, highlight_color: highlight_color %}
+    {% else %}
+      {{ block_text }}
+    {% endif %}
   </{{ element }}>
 {% endif %}
 
@@ -127,7 +139,7 @@
 
   .text-block > * {
     width: var(--width);
-    max-inline-size: min(100%, var(--max-width, 100%));
+    max-width: var(--max-width, 100%);
     text-align: var(--text-align, var(--text-align-default));
     text-wrap: var(--text-wrap);
   }

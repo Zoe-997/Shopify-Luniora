@@ -61,7 +61,7 @@
       "id": "max_width_custom",
       "label": "t:settings.max_width_custom",
       "default": 524,
-      "info": "t:info.format_number_px",
+      "info": "t:info.natural_number_format",
       "visible_if": "{{ block.settings.max_width == 'custom' }}"
     },
     {
@@ -398,6 +398,19 @@
       "max": 50,
       "step": 1,
       "visible_if": "{{ block.settings.background }}"
+    },
+    {
+      "type": "text",
+      "id": "highlight_position",
+      "label": "t:settings.highlight_position",
+      "info": "t:info.highlight_position"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "alpha": true,
+      "label": "t:settings.highlight_color",
+      "visible_if": "{{ block.settings.highlight_position }}"
     },
     {
       "type": "header",

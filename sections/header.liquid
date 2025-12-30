@@ -467,7 +467,7 @@
   }
 
   .header.overlay-header:not([data-scroll-direction='active']) {
-    position: sticky;
+    position: absolute;
     top: var(--overlay-top);
     right: 0;
     left: 0;
@@ -478,6 +478,10 @@
   
   .header.overlay-header:not([data-scroll-direction='active']) .header__row {
     border-radius: var(--overlay-radius);
+  }
+
+  .header.overlay-header[data-scroll-direction][data-sticky-state=active] {
+    position: sticky;
   }
 
   .header-section {

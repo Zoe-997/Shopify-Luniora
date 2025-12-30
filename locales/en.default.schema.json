@@ -33,7 +33,6 @@
   },
   "content": {
     "rating": "Rating",
-    "natural_number_format": "Format number: Natural. The value will be set to 0 if the number is negative.",
     "visible_if_collection_has_more_products": "Visible if collection has more products than shown",
     "advanced": "Advanced",
     "appearance": "Appearance",
@@ -212,8 +211,9 @@
     "work_quickly_to_ship": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>"
   },
   "info": {
+    "highlight_position": "The positions are separated by | and starting from 2nd place. If you want to highlight from the first character, add space at the beginning of the line. For example: 2|3",
     "unit_px": "Unit: px",
-    "natural_number_format": "Number format: natural",
+    "natural_number_format": "Format number: Natural. The value will be set to 0 if the number is negative.",
     "applies_on_image_only": "Applies to images only",
     "aspect_ratio_adjusted": "Adjusted in some layouts",
     "carousel_hover_behavior_not_supported": "\"Carousel\" hover is not supported when \"Carousel\" type is selected at the section level",
@@ -752,12 +752,14 @@
     "below_media": "Below media"
   },
   "settings": {
+    "highlight_position": "Highlight position",
+    "highlight_color": "Highlight color",
     "overlay_header": "Overlay Header",
     "default_border": "Border: default",
     "padding_block": "Padding: block",
     "padding_inline": "Padding: inline",
     "color_empty": "Color: Empty",
-    "custom_page_width": "Page width: Custom",
+    "custom_page_width": "Page width: Custom (Unit: px)",
     "accordion": "Accordion",
     "account": "Account",
     "alignment": "Alignment",
@@ -959,6 +961,7 @@
     "make_details_sticky_desktop": "Sticky on desktop",
     "make_section_full_width": "Make section full width",
     "max_width": "Max width",
+    "max_width_custom": "Max width: custom (px)",
     // Section header for product card media settings
     "media": "Media",
     "media_fit": "Media fit",

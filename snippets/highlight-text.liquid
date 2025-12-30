@@ -1,0 +1,53 @@
+{% liquid
+  assign text_array = text | split: ' '
+  assign highlight_positions = highlight_position | split: '|'
+  assign color = "rgb(" | append: highlight_color.rgba | append: ");"
+  assign output = ''
+  assign open_span = false
+%}
+
+{% for word in text_array %}
+  {%- comment -%}
+    Nếu từ chứa ký tự zero-width space → xóa toàn bộ khoảng trắng quanh nó
+  {%- endcomment -%}
+  {% if word == '&#8203;' %}
+    {% assign output = '' %}
+  {% endif %}
+
+  {% assign index_str = forloop.index | append: '' %}
+  {% assign is_highlight = false %}
+
+  {% if index_str != '1' %}
+    {% for pos in highlight_positions %}
+      {% if pos == index_str %}
+        {% assign is_highlight = true %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+  {% if is_highlight and open_span == false %}
+    {% assign output = output | append: '<span class="highlight" style="--highlight-color: ' | append: color | append: '">' %}
+    {% assign open_span = true %}
+  {% elsif open_span and is_highlight == false %}
+    {% assign output = output | append: '</span>' %}
+    {% assign open_span = false %}
+  {% endif %}
+
+  {% assign output = output | append: word %}
+  {% unless forloop.last %}
+    {% assign output = output | append: ' ' %}
+  {% endunless %}
+{% endfor %}
+
+{% if open_span %}
+  {% assign output = output | append: '</span>' %}
+{% endif %}
+
+{{ output }}
+
+{% stylesheet %}
+  .highlight {
+    color: var(--highlight-color);
+  }
+{% endstylesheet %}

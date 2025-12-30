@@ -13,7 +13,6 @@
 {%- enddoc -%}
 
 {% assign preset = preset | default: settings.type_preset %}
-
 {%- capture variables -%}
   {%- if preset != 'rte' and settings.color != "" -%}
     --color: {{ settings.color }};

@@ -1407,12 +1407,8 @@
         "id": "custom_page_width",
         "label": "t:settings.custom_page_width",
         "default": 1312,
-        "info": "t:info.unit_px",
+        "info": "t:info.natural_number_format",
         "visible_if": "{{ settings.page_width == 'custom' }}"
-      },
-      {
-        "type": "paragraph",
-        "content": "t:content.natural_number_format"
       }
     ]
   },
